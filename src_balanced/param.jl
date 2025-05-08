@@ -7,9 +7,9 @@ penlamEE       = 0.04; # 3.0
 penlamEI       = 0.04; # 3.0
 penlamIE       = 0.04; # 3.0
 penlamII       = 0.04; # 3.0
-penlamFF       = lam_list[jj];
+penlamFF       = 1.0; 
 penmu          = 8.0; # 2.0
-fracTrained    = fracTrained_list[qq];
+fracTrained    = 1824/2500;
 learn_every    = 20.0
 learn_step     = Int(learn_every/dt)
 
@@ -65,17 +65,17 @@ muimax = jx
 
 
 L = 20 # number of exc/inh plastic weights per neuron
-Lffwd = Lffwd_list[oo] #round(Int, L/2) # feedfoward L/2
+Lffwd = 300 #round(Int, L/2) # feedfoward L/2
 Lexc = L # excitatory L
 Linh = L # inhibitory L
-wpscale = sqrtK * L_list[ll] / 4.0
+wpscale = sqrtK * 6.0 / 4.0
 
 wpee = je * sqrtK / wpscale
 wpie = je * sqrtK / wpscale
 wpei = -ji * sqrtK / wpscale * (6.5/12.0) # initial network: exc rate = 6.5 Hz, inh rate = 12.0 Hz
 wpii = -ji * sqrtK / wpscale * (6.5/12.0) # initial network: exc rate = 6.5 Hz, inh rate = 12.0 Hz
 
-wpffwd = wpee * wpffwd_list[pp]
+wpffwd = 0.0 # initial feedforward weights
 
 maxrate = 500 #(Hz) maximum average firing rate.  if the average firing rate across the simulation for any neuron exceeds this value, some of that neuron's spikes will not be saved
 

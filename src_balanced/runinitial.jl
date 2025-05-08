@@ -1,7 +1,7 @@
 function runinitial(p,w0Index,w0Weights,nc0)
 
     # copy param
-    train_time = 20000.0
+    train_time = 2000.0
     # train_time = copy(p.train_time)    
     dt = copy(p.dt)
     Nsteps = Int(train_time / dt) # network param
@@ -52,9 +52,10 @@ function runinitial(p,w0Index,w0Weights,nc0)
     
     lastSpike = -100.0*ones(Ncells) #time of last spike
     
-    Nexam = 1000
+    Nexam = 10
+    synExc = zeros(Nexam,Nsteps)
+    synInh = zeros(Nexam,Nsteps)
     uavg = zeros(Ncells) #changed from zeros(Nexam)
-    utmp = zeros(Nsteps - Int(1000/p.dt),2*Nexam)
     t = 0.0
     r = zeros(Ncells)
     bias = zeros(Ncells)
@@ -71,8 +72,14 @@ function runinitial(p,w0Index,w0Weights,nc0)
             xidecay[ci] += -dt*xidecay[ci]/tauidecay + forwardInputsIPrev[ci]/tauidecay
             synInput = xedecay[ci] + xidecay[ci]
     
-            # excitatory (uavg)
+            # to demonstrate the balanced state
+            if ci <= Nexam
+                synExc[ci,ti] = xedecay[ci] + mu[ci]
+                synInh[ci,ti] = xidecay[ci]
+            end
 
+
+            # excitatory (uavg)
             uavg[ci] += (synInput + mu[ci]) / (Nsteps - Int(1000/p.dt)) # save synInput     
             bias[ci] = mu[ci]
     
@@ -108,7 +115,7 @@ function runinitial(p,w0Index,w0Weights,nc0)
     #ustd = std(utmp, dims=1)[:]
     #ustd_mean = mean(ustd)
     
-    return times, ns, uavg 
+    return times, ns, uavg, synExc, synInh
     
 end
     
