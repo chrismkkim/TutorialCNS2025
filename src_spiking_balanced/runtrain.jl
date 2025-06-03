@@ -83,6 +83,7 @@ udrive_tmp = zeros(Ncells)
 P = Vector{Array{Float64,2}}(); 
 Px = Vector{Array{Int64,1}}();
 
+numTarg = 2
 numFfwd = p.Lffwd
 numExc = Int(p.Lexc)
 numInh = Int(p.Linh)
@@ -122,7 +123,7 @@ for iloop =1:nloop
 
     start_time = time()
 
-    for licki = 1:1 #remove 2
+    for licki = 1:numTarg
 
         # divide presynaptic neurons trained for lick left and right
         numExc = Int(p.Lexc)
@@ -162,14 +163,12 @@ for iloop =1:nloop
                     k = P[ci]*raug
                     vPv = raug'*k
                     den = 1.0/(1.0 + vPv[1])
-                    BLAS.gemm!('N','T',-den,k,k,1.0,P[ci])
-                   
+                    BLAS.gemm!('N','T',-den,k,k,1.0,P[ci])                   
 
                     e  = wpWeightIn[ci,:]'*rtrim + wpWeightFfwd[licki][ci,:]'*s + synInputBalanced[ci] + mu[ci] - xtarg[licki][learn_seq,ci_alm]
                     dw = -e*k*den
                     wpWeightIn[ci,:] .+= dw[1 : numExcInh]
                     wpWeightFfwd[licki][ci,:] .+= dw[numExcInh+1 : end]
-
 
                 end                
                 wpWeightOut = convertWgtIn2Out(p,ncpIn,wpIndexIn,wpIndexConvert,wpWeightIn,wpWeightOut)
