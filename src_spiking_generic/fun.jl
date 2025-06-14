@@ -7,7 +7,7 @@ function propagate_spikes(ci,nc0,w0Index,w0Weights,forwardInputs)
     return forwardInputs
 end
 
-function rls(p, Ncells, r, Px, P, w0WeightIn, w0WeightOut, w0IndexConvert, nc0, mu, xtarg, learn_seq)
+function rls(p, Ncells, r, Px, P, w0IndexIn, w0WeightIn, w0WeightOut, w0IndexConvert, nc0, mu, xtarg, learn_seq)
 
     for ctrn = 1:Ncells
         rtrim = @view r[Px[ctrn]]

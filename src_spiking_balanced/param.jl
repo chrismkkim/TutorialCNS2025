@@ -1,7 +1,7 @@
 dt = 0.1 #simulation timestep (ms)
 
 # training variables
-nloop          = 50; #300
+nloop          = 10; #300
 penlambda      = 0.05; # 0.1 or 0.5 
 penlamEE       = 0.04; # 3.0
 penlamEI       = 0.04; # 3.0

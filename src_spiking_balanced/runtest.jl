@@ -133,7 +133,7 @@ for ti=1:Nsteps
             xtotal[:,ci], xtotalcnt = funRollingAvg(p,t,wid,widInc,learn_nsteps,xtotal[:,ci],xtotalcnt,synInput,ci)
             xebal[:,ci], xebalcnt = funRollingAvg(p,t,wid,widInc,learn_nsteps,xebal[:,ci],xebalcnt,xedecay[ci],ci)
             xibal[:,ci], xibalcnt = funRollingAvg(p,t,wid,widInc,learn_nsteps,xibal[:,ci],xibalcnt,xidecay[ci],ci)
-            xplastic[:,ci], xpasticcnt = funRollingAvg(p,t,wid,widInc,learn_nsteps,xplastic[:,ci],xplasticcnt,xedecay[ci],ci)
+            xplastic[:,ci], xplasticcnt = funRollingAvg(p,t,wid,widInc,learn_nsteps,xplastic[:,ci],xplasticcnt,xedecay[ci],ci)
 
         end
         

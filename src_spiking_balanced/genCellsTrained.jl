@@ -1,7 +1,6 @@
-function genCellsTrained(targetRate, ns)
+function genCellsTrained(p, targetRate, ns)
 
-    train_time = 20000
-    networkMean = ns[1:p.Ne] / (train_time / 1000)
+    networkMean = ns[1:p.Ne] / (p.train_time / 1000)
     targetMean = mean(targetRate, dims=2)[:]
     networkMean_copy = copy(networkMean)
     Npyr = size(targetMean)[1]
