@@ -68,7 +68,7 @@ function lifnet_train(mode,p,w0IndexIn,w0IndexOut,w0WeightIn,w0WeightOut,w0Index
 
             if mode == "train"
                 if t > Int(stim_off) && t <= Int(train_time) && mod(t, learn_every) == 0
-                    w0WeightIn, w0WeightOut, learn_seq = rls(p, Ncells, r, Px, P, w0WeightIn, w0WeightOut, w0IndexConvert, nc0, mu, xtarg, learn_seq)
+                    w0WeightIn, w0WeightOut, learn_seq = rls(p, Ncells, r, Px, P, w0IndexIn, w0WeightIn, w0WeightOut, w0IndexConvert, nc0, mu, xtarg, learn_seq)
                 end        
             elseif mode == "test"
                 ;
