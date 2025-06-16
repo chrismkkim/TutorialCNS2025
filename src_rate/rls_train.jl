@@ -15,8 +15,9 @@ function rls_train(ti, p, r, r_targ, P, Px, w_rec)
 
         # Compute error 
     
-        e  = (w_rec[ci,Px[ci][:]])' * rtrim - r_targ[ti,ci]; 
-
+        e  = w_rec[ci,Px[ci][:]]' * rtrim - r_targ[ti,ci]; 
+        #wr[ti,ci] = w_rec[ci,Px[ci][:]]' * rtrim
+        
         # Update recurrent weights
 
         dw = -e[1]*k*den;

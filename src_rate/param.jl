@@ -1,7 +1,7 @@
 dt=0.1;
 Ncells=100;
 
-tau=5; #in ms
+tau=10; #in ms
 nloop=50;
 learn_every=5.0
 

@@ -6,3 +6,15 @@ function F(x,p)
 
   return r
 end
+
+
+#=
+function F(x,p)
+
+  r =  tanh.(x)
+
+ return r
+end
+=#
+
+
