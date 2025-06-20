@@ -137,7 +137,7 @@ for ti=1:Nsteps
 
         # external input
         if t > Int(stim_on) && t < Int(stim_off) 
-            bias[ci] = mu[ci] + stim[licki][ti-Int(stim_on/dt),ci]
+            bias[ci] = mu[ci] + stim[licki][ci]
         else
             bias[ci] = mu[ci]
         end
