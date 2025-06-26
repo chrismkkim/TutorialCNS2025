@@ -16,9 +16,9 @@ https://colab.research.google.com/
 
 You will be prompted to open a notebook. In the sidebar, select GitHub, and paste the link from our tutorial. When you hit Enter/Return the three notebooks should appear: 
 
-`part1_train_rate_model.ipynb`
-`part2_train_spiking_generic.ipynb`
-`part3_train_spiking_balanced.ipynb`
+`part1_train_rate_model.ipynb`  
+`part2_train_spiking_generic.ipynb`  
+`part3_train_spiking_balanced.ipynb`  
 
 ![](figure/open_from_git.png)
 
@@ -46,17 +46,17 @@ When opening the notebooks in the text editor of your choice (Jupyter, JupyterLa
 
 In a terminal window or Jupyter notebook running Julia, you can install the required packages by entering the commands below.
 
-  `import Pkg`
+  `import Pkg`  
 
- ` Pkg.add("Distributions")`
- ` Pkg.add("PyPlot")`
-  `Pkg.add("PyCall")`
- ` Pkg.add("DelimitedFiles")`
- ` Pkg.add("LinearAlgebra")`
- ` Pkg.add("Random")`
-  `Pkg.add("SparseArrays")`
- ` Pkg.add("JLD")`
- ` Pkg.add("Statistics")`
+ ` Pkg.add("Distributions")`  
+ ` Pkg.add("PyPlot")`  
+  `Pkg.add("PyCall")`  
+ ` Pkg.add("DelimitedFiles")`  
+ ` Pkg.add("LinearAlgebra")`  
+ ` Pkg.add("Random")`  
+  `Pkg.add("SparseArrays")`  
+ ` Pkg.add("JLD")`  
+ ` Pkg.add("Statistics")`  
 
 When running your notebooks, make sure that `colab = false` in the first line of each notebook. 
 
