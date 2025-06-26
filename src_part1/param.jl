@@ -12,7 +12,8 @@ pconn=0.3
 
 # training param
 penlambda = 0.5
-train_duration = 100.;
+#train_duration = 100.;
+train_duration = 500.;
 stim_on         = 100.;
 stim_off        = 110.;
 train_time      = stim_off + train_duration;
