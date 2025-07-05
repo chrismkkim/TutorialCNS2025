@@ -8,7 +8,7 @@ learn_every=5.0
 # connectivity
 K = 100;
 g=1.0; #network gain
-pconn=0.3
+pconn=0.2 #not used in this tutorial
 
 # training param
 penlambda = 0.5
